@@ -1,0 +1,210 @@
+version: '2.0'
+config:
+  store_entities_as_slots: false
+session_config:
+  session_expiration_time: 6
+  carry_over_slots_to_new_session: false
+intents:
+- greet:
+    use_entities: []
+- ask_pizza_price:
+    use_entities:
+    - pizza
+- faq:
+    is_retrieval_intent: true
+    use_entities: []
+- affirm:
+    use_entities: []
+- deny:
+    use_entities: []
+- goodbye:
+    use_entities: []
+- submit_pizza:
+    use_entities:
+    - pizza
+- change_pizza_toppings:
+    use_entities:
+    - topping
+- submit_pizza_number:
+    use_entities:
+    - number
+- ask_pizza_toppings:
+    use_entities:
+    - pizza
+- check_availability:
+    use_entities: []
+- ask_for_menu:
+    use_entities: []
+- bot_challenge:
+    use_entities: []
+- submit_delivery_address:
+    use_entities: []
+- submit_surname:
+    use_entities: []
+- nlu_fallback:
+    use_entities: []
+entities:
+- number
+- pizza
+- topping
+slots:
+  order:
+    type: any
+    auto_fill: false
+    influence_conversation: false
+  pizza:
+    type: text
+    auto_fill: false
+    influence_conversation: false
+  pizza_validated:
+    type: text
+    auto_fill: false
+    influence_conversation: false
+  pizza_tmp:
+    type: text
+    auto_fill: false
+    influence_conversation: false
+  to_add_toppings:
+    type: bool
+    auto_fill: false
+    influence_conversation: true
+  add_toppings:
+    type: list
+    auto_fill: false
+    influence_conversation: false
+  to_remove_toppings:
+    type: bool
+    auto_fill: false
+    influence_conversation: true
+  remove_toppings:
+    type: list
+    auto_fill: false
+    influence_conversation: false
+  pizza_number:
+    type: any
+    auto_fill: false
+    influence_conversation: false
+  another_pizza:
+    type: bool
+    auto_fill: false
+    influence_conversation: true
+  address:
+    type: text
+    auto_fill: false
+    influence_conversation: false
+  surname:
+    type: text
+    auto_fill: false
+    influence_conversation: false
+  requested_slot:
+    type: text
+    auto_fill: false
+    influence_conversation: false
+responses:
+  utter_greet:
+  - text: Ciao anche a te dalla Pizzeria 🍕, come posso aiutarti?
+  - text: Salve! Pizzeria 🍕 Come posso aiutarti?
+  - text: Pizzeria 🍕, come posso esserti utile?
+  - text: Pizzeria 🍕, chiedi pure.
+  utter_goodbye:
+  - text: A presto!
+  - text: Arrivederci!
+  utter_faq/bot_challenge:
+  - text: Sono un bot 🤖. Il mio compito è quello di aiutare la pizzeria con gli ordini.
+  utter_faq/ask_for_menu:
+  - image: https://i.imgur.com/P8xOFlN.jpg
+    text: Ecco a te il menu delle nostre pizze(esempio)!
+  utter_faq:
+  - text: ''
+  utter_ask_pizza:
+  - text: Dimmi pure la pizza che vuoi prendere.
+  utter_ask_to_add_toppings:
+  - text: Vuoi aggiungere qualche ingrediente sulla {pizza_validated}?
+  - text: Desideri aggiungere qualche ingrediente alla {pizza_validated}?
+  utter_ask_to_remove_toppings:
+  - text: Vuoi togliere qualche ingrediente dalla {pizza_validated}?
+  - text: Vuoi rimuovere ingredienti dalla {pizza_validated}?
+  utter_ask_another_pizza:
+  - text: Vuoi aggiungere un'altra pizza all'ordine?
+  - text: Desideri un'altra pizza?
+  - text: Vuoi ordinare anche un'altra pizza?
+  utter_ask_address:
+  - text: Qual è l'indirizzo per la consegna?
+  - text: Scrivi l'indirizzo di consegna
+  - text: A quale indirizzo dobbiamo consegnare?
+  utter_ask_surname:
+  - text: Dammi un tuo nominativo grazie.
+  - text: Scrivi un nominativo (es. cognome) per favore.
+  utter_deny:
+  - text: ❌ Operazione annullata.
+  utter_affirm:
+  - text: ✅ Perfetto, l'ordine è avvenuto con successo.
+  utter_default:
+  - text: Mi dispiace, non credo di aver capito. Potresti ripetere?
+  - text: Non ho capito. Forse puoi scriverlo in un altro modo?
+  - text: Non credo di aver capito. Ripeteresti?
+  utter_please_rephrase:
+  - text: Mi dispiace, non credo di aver capito. Potresti ripetere?
+  - text: Non ho capito. Forse puoi scriverlo in un altro modo?
+  - text: Non credo di aver capito. Ripeteresti?
+actions:
+- action_ask_confirm
+- action_ask_pizza_number
+- action_check_availability
+- action_pizza_checker
+- action_show_pizza_price
+- action_show_pizza_toppings
+- action_submit_order
+- utter_faq
+- utter_goodbye
+- utter_greet
+- validate_order_form
+forms:
+  order_form:
+    pizza:
+    - entity: pizza
+      intent: submit_pizza
+      type: from_entity
+    to_add_toppings:
+    - intent: affirm
+      type: from_intent
+      value: true
+    - intent: deny
+      type: from_intent
+      value: false
+    - entity: topping
+      intent: change_pizza_toppings
+      type: from_entity
+    add_toppings:
+    - entity: topping
+      intent: change_pizza_toppings
+      type: from_entity
+    to_remove_toppings:
+    - intent: affirm
+      type: from_intent
+      value: true
+    - intent: deny
+      type: from_intent
+      value: false
+    - entity: topping
+      intent: change_pizza_toppings
+      type: from_entity
+    remove_toppings:
+    - entity: topping
+      intent: change_pizza_toppings
+      type: from_entity
+    pizza_number:
+    - type: from_entity
+      entity: number
+      intent: submit_pizza_number
+    another_pizza:
+    - intent: affirm
+      type: from_intent
+      value: true
+    - intent: deny
+      type: from_intent
+      value: false
+    address:
+    - type: from_text
+    surname:
+    - type: from_text

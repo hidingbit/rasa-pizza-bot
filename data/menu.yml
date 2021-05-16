@@ -1,0 +1,202 @@
+#Dizionario di pizze
+pizza:
+  margherita:
+    title: "Margherita"
+    price: 3.50
+    toppings:
+      - Pomodoro
+      - Mozzarella
+      - Basilico
+  capricciosa:
+    title: "Capricciosa"
+    price: 6.50
+    toppings:
+      - Pomodoro
+      - Mozzarella
+      - Prosciutto cotto
+      - Funghi
+      - Carciofini
+      - Olive
+  napoli:
+    title: "Napoli"
+    price: 5.00
+    toppings:
+      - Pomodoro
+      - Mozzarella
+      - Acciughe
+  4formaggi:
+    title: "4 Formaggi"
+    price: 6.50
+    toppings:
+      - Mozzarella
+      - Fontina
+      - Gorgonzola
+      - Emmental
+  prosciuttoefunghi:
+    title: "Prosciutto e Funghi"
+    price: 6.50
+    toppings:
+      - Pomodoro
+      - Mozzarella
+      - Funghi
+      - Prosciutto cotto
+  greca:
+    title: "Greca"
+    price: 5.50
+    toppings:
+      - Pomodoro
+      - Mozzarella
+      - Olive
+  marinara:
+    title: "Marinara"
+    price: 5.00
+    toppings:
+      - Pomodoro
+      - Olive
+      - Acciughe
+      - Capperi
+      - Aglio
+  cafona:
+    title: "Cafona"
+    price: 7.50
+    toppings:
+      - Mozzarella
+      - Cime
+      - Salsiccia
+  napoletana:
+    title: "Napoletana"
+    price: 5.00
+    toppings:
+      - Pomodoro
+      - Aglio
+      - Origano
+  bianca:
+    title: "Bianca"
+    price: 4.50
+    toppings:
+      - Mozzarella
+  biancaconprosciuttocotto:
+    title: "Bianca e Prosciutto cotto"
+    price: 5.00
+    toppings:
+      - Mozzarella
+      - Prosciutto cotto
+  4stagioni:
+    title: "4 Stagioni"
+    price: 6.50
+    toppings:
+      - Pomodoro
+      - Mozzarella
+      - Prosciutto cotto
+      - Funghi
+      - Carciofi
+      - Olive
+  bismark:
+    title: "Bismark"
+    price: 6.50
+    toppings:
+      - Pomodoro
+      - Mozzarella
+      - Prosciutto cotto
+      - Uovo
+      - Origano
+  messicana:
+    title: "Messicana"
+    price: 7.50
+    toppings:
+      - Pomodoro
+      - Mozzarella
+      - Fagioli
+      - Salsiccia
+      - Peperoncino
+  diavola:
+    title: "Diavola"
+    price: 4.00
+    toppings:
+      - Pomodoro
+      - Mozzarella
+      - Salame piccante
+  broccoliesalsiccia:
+    title: "Broccoli e Salsiccia"
+    price: 5.50
+    toppings:
+      - Mozzarella
+      - Broccoli
+      - Salsiccia
+
+toppings:
+  pomodoro:
+    title: "Pomodoro"
+    price: 0.50
+  mozzarella:
+    title: "Mozzarella"
+    price: 0.50
+  broccoli:
+    title: "Broccoli"
+    price: 0.50
+  salsiccia:
+    title: "Salsiccia"
+    price: 0.50  
+  patatine:
+    title: "Patatine"
+    price: 0.50
+  wurstel:
+    title: "Wurstel"
+    price: 0.50
+  patate:
+    title: "Patate"
+    price: 0.50
+  funghi:
+    title: "Funghi"
+    price: 0.50
+  mais:
+    title: "Mais"
+    price: 0.50
+  olive:
+    title: "Olive"
+    price: 0.50
+  prosciuttocrudo:
+    title: "Prosciutto crudo"
+    price: 0.50
+  prosciuttocotto:
+    title: "Prosciutto cotto"
+    price: 0.50
+  acciughe:
+    title: "Acciughe"
+    price: 0.50
+  capperi:
+    title: "Capperi"
+    price: 0.50
+  aglio:
+    title: "Aglio"
+    price: 0.50
+  peperoncino:
+    title: "Peperoncino"
+    price: 0.50
+  origano:
+    title: "Origano"
+    price: 0.50
+  basilico:
+    title: "Basilico"
+    price: 0.50
+  cime:
+    title: "Cime"
+    price: 0.50
+  salamepiccante:
+    title: "Salame piccante"
+    price: 0.50
+  fagioli:
+    title: "Fagioli"
+    price: 0.50
+  carciofini:
+    title: "Carciofini"
+    price: 0.50
+  uovo:
+    title: "Uovo"
+    price: 0.50
+  panna:
+    title: "Panna"
+    price: 0.50
+  ketchup:
+    title: "Ketchup"
+    price: 0.50

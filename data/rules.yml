@@ -1,0 +1,77 @@
+version: "2.0"
+
+rules:
+- rule: welcome user
+  steps:
+    - intent: greet
+    - action: utter_greet
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+    - intent: goodbye
+    - action: utter_goodbye
+
+- rule: respond to FAQs
+  steps:
+    - intent: faq
+    - action: utter_faq
+
+- rule: Always respond to the user if he asks for service availability
+  steps:
+    - intent: check_availability
+    - action: action_check_availability
+
+- rule: Show toppings of a pizza whenever the user asks
+  steps:
+    - intent: ask_pizza_toppings
+    - action: action_pizza_checker
+    - action: action_show_pizza_toppings
+
+- rule: Show price of a pizza anytime the user asks
+  steps:
+    - intent: ask_pizza_price
+    - action: action_pizza_checker
+    - action: action_show_pizza_price
+
+- rule: Ask the user to rephrase in case of low NLU confidence
+  steps:
+    - intent: nlu_fallback
+    - action: utter_please_rephrase
+
+- rule: activate order_form
+  steps:
+    - intent: submit_pizza
+    - action: order_form
+    - active_loop: order_form
+
+- rule: submit form and affirm
+  condition:
+  - active_loop: order_form
+  steps:
+    - action: order_form
+    - active_loop: null
+    - action: action_ask_confirm
+    - intent: affirm
+    - action: utter_affirm
+    - action: action_submit_order
+    - action: action_restart
+
+- rule: submit form and deny
+  condition:
+  - active_loop: order_form
+  steps:
+    - action: order_form
+    - active_loop: null
+    - action: action_ask_confirm
+    - intent: deny
+    - action: utter_deny
+    - action: action_restart
+
+- rule: User starts a faq while the form is active
+  condition:
+    - active_loop: order_form
+  steps:
+    - intent: faq
+    - action: utter_faq
+    - action: order_form
+    - active_loop: order_form

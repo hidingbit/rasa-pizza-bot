@@ -1,0 +1,121 @@
+version: "2.0"
+stories:
+
+- story: the user orders a pizza
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: submit_pizza
+    entities:
+    - pizza: 4 Formaggi
+  - action: order_form
+  - active_loop: order_form
+  - slot_was_set:
+    - pizza: 4 Formaggi
+  - slot_was_set:
+    - order:
+        '0':
+          title: 4 Formaggi
+          price: 6.5
+          toppings:
+          - Mozzarella
+          - Fontina
+          - Gorgonzola
+          - Emmental
+  - slot_was_set:
+    - requested_slot: to_add_toppings
+  - slot_was_set:
+    - to_add_toppings: false
+  - slot_was_set:
+    - requested_slot: to_remove_toppings
+  - slot_was_set:
+    - add_toppings: []
+  - slot_was_set:
+    - order:
+        '0':
+          title: 4 Formaggi
+          price: 6.5
+          toppings:
+          - Mozzarella
+          - Fontina
+          - Gorgonzola
+          - Emmental
+          add_toppings: []
+  - slot_was_set:
+    - to_remove_toppings: false
+  - slot_was_set:
+    - order:
+        '0':
+          title: 4 Formaggi
+          price: 6.5
+          toppings:
+          - Mozzarella
+          - Fontina
+          - Gorgonzola
+          - Emmental
+          add_toppings: []
+          remove_toppings: []
+  - slot_was_set:
+    - remove_toppings: []
+  - slot_was_set:
+    - requested_slot: pizza_number
+  - slot_was_set:
+    - pizza_number: '1'
+  - slot_was_set:
+    - order:
+        '0':
+          title: 4 Formaggi
+          price: 6.5
+          toppings:
+          - Mozzarella
+          - Fontina
+          - Gorgonzola
+          - Emmental
+          add_toppings: []
+          remove_toppings: []
+          quantity: 1
+  - slot_was_set:
+    - requested_slot: another_pizza
+  - slot_was_set:
+    - another_pizza: false
+  - slot_was_set:
+    - requested_slot: address
+  - slot_was_set:
+    - address: via gragnano 50
+  - slot_was_set:
+    - requested_slot: surname
+  - slot_was_set:
+    - surname: Salierno
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_ask_confirm
+  - slot_was_set:
+    - order:
+        '0':
+          title: 4 Formaggi
+          price: 6.5
+          toppings:
+          - Mozzarella
+          - Fontina
+          - Gorgonzola
+          - Emmental
+          add_toppings: []
+          remove_toppings: []
+          quantity: 1
+  - intent: affirm
+  - action: utter_affirm
+  - action: action_submit_order
+  - action: action_restart
+
+- story: user wants to know the price of a pizza
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_pizza_price
+    entities:
+    - pizza: margherita
+  - action: action_pizza_checker
+  - slot_was_set:
+    - pizza_tmp: Margherita
+  - action: action_show_pizza_price

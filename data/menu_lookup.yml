@@ -1,0 +1,51 @@
+version: "2.0"
+
+nlu:
+- lookup: pizza
+  examples: |
+    - Margherita
+    - Capricciosa
+    - Napoli
+    - 4 Formaggi
+    - Prosciutto e Funghi
+    - Greca
+    - Marinara
+    - Cafona
+    - Napoletana
+    - Bianca
+    - Bianca con Prosciutto cotto
+    - 4 Stagioni
+    - Bismark
+    - Messicana
+    - Diavola
+    - Broccoli e Salsiccia
+- lookup: topping
+  examples: |
+    - pomodoro
+    - mozzarella
+    - broccoli
+    - salsiccia
+    - patatine
+    - wurstel
+    - patate
+    - funghi
+    - mais
+    - olive
+    - prosciutto crudo
+    - prosciutto cotto
+    - acciughe
+    - capperi
+    - aglio
+    - peperoncino
+    - origano
+    - basilico
+    - cime
+    - salame piccante
+    - fagioli
+    - carciofini
+    - uovo
+    - panna
+    - ketchup
+    - salame piccante
+    - capperi
+    - aglio

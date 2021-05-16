@@ -1,0 +1,47 @@
+# Configuration for Rasa NLU.
+# https://rasa.com/docs/rasa/nlu/components/
+language: it
+
+pipeline:
+  - name: WhitespaceTokenizer
+  - name: RegexFeaturizer
+  - name: RegexEntityExtractor
+    use_lookup_tables: True
+    case_sensitive: False
+  - name: LexicalSyntacticFeaturizer
+  - name: CountVectorsFeaturizer
+  - name: CountVectorsFeaturizer
+    analyzer: char_wb
+    min_ngram: 1
+    max_ngram: 4
+  - name: DIETClassifier
+    epochs: 100
+    constrain_similarities: True
+    model_confidence: linear_norm
+  - name: EntitySynonymMapper
+  - name: DucklingEntityExtractor
+    url: "http://localhost:8000"
+    dimensions: ["number"]
+    locale: "it_IT"
+  - name: ResponseSelector
+    epochs: 100
+    retrieval_intent: faq
+    constrain_similarities: True
+    model_confidence: linear_norm
+  - name: FallbackClassifier
+    threshold: 0.4
+    ambiguity_threshold: 0.1
+
+# Configuration for Rasa Core.
+# https://rasa.com/docs/rasa/core/policies/
+policies:
+  - name: MemoizationPolicy
+  - name: TEDPolicy
+    max_history: 5
+    epochs: 100
+    constrain_similarities: True
+    model_confidence: linear_norm
+  - name: RulePolicy
+    core_fallback_threshold: 0.4
+    core_fallback_action_name: "action_default_fallback"
+    enable_fallback_prediction: True

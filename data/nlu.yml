@@ -1,0 +1,297 @@
+version: "2.0"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - we
+    - ciao
+    - salve
+    - buongiorno
+    - buonasera
+    - chiedo scusa
+    - yo
+    - we we
+    - mi scusi
+    - ehi
+    - hei
+- intent: affirm
+  examples: |
+    - è corretto
+    - sì proprio così
+    - sì perfetto grazie
+    - si grazie
+    - esatto
+    - yes
+    - sì
+    - si
+    - is
+    - tutto torna
+    - a posto
+    - ok
+    - certo
+    - certamente
+    - senza dubbio
+    - indubbiamente
+    - così pare
+    - sembrerebbe di sì
+    - così mi sembra
+    - va bene
+    - va buono
+- intent: deny
+  examples: |
+    - no scusi
+    - no
+    - no è sbagliato
+    - è sbagliato
+    - non è corretto
+    - no aspetta
+    - fermo
+    - no, non ho chiesto questo
+    - no c'è un errore
+    - no un attimo
+    - non si trova
+    - non torna
+    - no grazie
+    - niente
+    - nessuno
+    - basta così
+- intent: goodbye
+  examples: |
+    - arrivederci
+    - grazie mille
+    - ti ringrazio molto
+    - molte grazie
+    - a presto
+    - vi auguro una buona giornata
+    - stammi bene
+    - buon proseguimento
+    - ok arrivederci
+- intent: submit_pizza
+  examples: |
+    - vorrei una [Margherita](pizza)
+    - una [Bismark](pizza) grazie
+    - vorrei una pizza [Margherita](pizza)
+    - mi fate una pizza [4 Stagioni](pizza)
+    - questa volta facciamo una [quattro stagioni]{"entity": "pizza", "value": "4 Stagioni"}
+    - mi piacerebbe una bella [Napoli](pizza)
+    - mi piacerebbe provare una [Marinara](pizza)
+    - una pizza [Capricciosa](pizza)
+    - vorrei ordinare una [4 formaggi]{"entity": "pizza", "value": "4 Formaggi"}
+    - vorrei ordinare una [quattro formaggi]{"entity": "pizza", "value": "4 Formaggi"}
+    - È possibile ordinare una [broccoli e salsiccia](pizza)
+    - Vorrei avere una [prosciutto e funghi](pizza)
+    - una [prosciutto e funghi]{"entity": "pizza", "value": "Prosciutto e Funghi"}
+    - una [diavla](pizza) per favore
+    - una [4 formaggi]{"entity": "pizza", "value": "4 Formaggi"}
+    - uan [Margherita](pizza)
+    - È possibile fare un ordine?
+    - È possibile prendere delle pizze?
+    - Vorrei una pizza
+    - Vorrei delle pizze
+    - Vorrei prendere delle pizze
+    - Devo prendere delle pizze
+    - Devo comprare una pizza
+    - Voglio fare un nuovo ordine
+    - vorrei ordinare una pizza
+    - ok [capricciosa](pizza)
+    - [Messicana](pizza)
+    - [Napoletana](pizza)
+    - [bianca al cotto]{"entity": "pizza", "value": "Bianca con Prosciutto cotto"}
+    - [bianca con cotto](pizza)
+    - una [bianca e cotto](pizza)
+    - [quattro stagioni](pizza)
+- intent: ask_pizza_toppings
+  examples: |
+    - vorrei sapere che ingredienti ci sono sulla [diavola](pizza)
+    - che razza di pizza è la [4 stagioni](pizza)?
+    - che ingredienti ci sono sulla [margherita](pizza)?
+    - è possibile sapere che c'è sulla [napoli](pizza)?
+    - mi piacerebbe sapere che gusti ha la [capricciosa](pizza)
+    - che c'è sulla [4 Stagioni](pizza)?
+    - che ci sta sulla [quattro stagioni](pizza)?
+    - che pizza è la [capricciosa](pizza)?
+    - come la fate la [margherita](pizza)?
+    - che cos'è la [Bismark](pizza)
+    - ingredienti [4 Formaggi](pizza)
+    - ingredienti pizza [quattro formaggi](pizza)
+    - ingredienti [Napoletana](pizza)
+- intent: ask_pizza_price
+  examples: |
+    - quanto costa una [margherita](pizza)?
+    - vorrei sapere il prezzo della [4 formaggi](pizza)?
+    - posso conoscere il prezzo di una [capricciosa](pizza)
+    - prezzo [quattro stagioni](pizza)
+    - quanto si paga per la [napoli](pizza)?
+    - quanto pago per una [bismark](pizza)?
+    - [broccoli e salsiccia](pizza) prezzo
+    - quanto spendo per una pizza [prosciutto e funghi](pizza)?
+    - quanto mi costa una pizza [marinara](pizza)?
+    - prezzo [margherita](pizza)
+    - prezzo [napoli](pizza)
+    - prezzo [napoletana](pizza)
+- intent: change_pizza_toppings
+  examples: |
+    - sì aggiungi [carciofini](topping) e [olive](topping)
+    - [patatine](topping) e [wurstel](topping)
+    - [mais](topping)
+    - [uovo](topping)
+    - mi metti le [cipolle](topping)
+    - inserisci [olive](topping) e [aglio](topping)
+    - voglio [mozzarella](topping)
+    - [funghi](topping)
+    - i [funghi](topping)
+    - [salsa](topping)
+    - il [pomodoro](topping)
+    - si [patatine](topping) e [mais](topping)
+    - sì le [patatine](topping)
+    - si [salame piccante](topping) e [mais](topping)
+    - si mettici le [patatine fritte](topping) e i [wrustel](topping)
+    - si la [mozzarella](topping) e il [mais](topping)
+    - si [funghi](topping) e un po di [origano](topping)
+    - [uova](topping)
+    - vorrei togliere i [carciofini](topping)
+    - mi togli le [cipolle](topping)
+    - leva [olive](topping) e [aglio](topping)
+    - [carciofi](topping) [funghi](topping)
+    - niente [mozzarella](topping)
+    - la [salsa](topping)
+    - la [mozzarella](topping)
+    - [pomodoro](topping)
+    - si il [mais](topping)
+    - si le [acciughe](topping)
+    - [salame piccante](topping)
+    - levami l' [aglio](topping)
+    - l'[uovo](topping)
+    - la [mozzarella](topping) e il [basilico](topping)
+    - togli il [peperoncino](topping)
+    - [origano](topping)
+    - i [broccoli](topping)
+    - sì il [prosciutti]{"entity": "topping", "value": "Prosciutto cotto"}
+    - mi devi levare sto [prosciutto]{"entity": "topping", "value": "Prosciutto cotto"}
+    - [cotto](topping)
+    - si mettimi il [prosciutto cotto](topping)
+    - [prosciutto cotto](topping)
+    - [prosciutto crudo](topping)
+    - [crudo]{"entity": "topping", "value": "Prosciutto crudo"}
+    - del [prosciutto cruso]{"entity": "topping", "value": "Prosciutto crudo"}
+    - metti il [prsciutto crudo](topping)
+- intent: check_availability
+  examples: |
+    - Siete aperti oggi?
+    - A che ora aprite?
+    - Vorrei sapere l'orario di apertura
+    - Consegnate solo a domicilio?
+    - siete disponibili oggi?
+    - Mi puoi mandare gli orari?
+    - Sei aperto?
+    - La pizzeria a che ora apre?
+    - orario
+    - apertura
+- intent: faq/ask_for_menu
+  examples: |
+    - pizze
+    - menu
+    - volantino
+    - vorrei il menu
+    - che pizze ci sono?
+    - che pizze fate?
+    - quali pizze preparate?
+    - qual è il vostro menu?
+    - mi potete dare il menu?
+    - mi puoi dare il menu?
+    - il menu per favore
+    - vorrei la foto del menu
+    - mi date l'immagine del menu?
+    - non conosco il menu
+    - eh ma ditemi qual è sto menu
+- intent: faq/bot_challenge
+  examples: |
+    - sei per caso un bot?
+    - ma tu sei una persona?
+    - non sei una persona?
+    - sto parlando con un bot?
+    - tu chi sei?
+    - che razza di persona sei?
+    - non mi sembri una persona
+    - sembri un robot
+    - con chi parlo?
+    - con chi scrivo?
+    - a chi sto scrivendo?
+- intent: submit_delivery_address
+  examples: |
+    - Corso Vittorio Emanuele
+    - Via Armando Diaz
+    - Via Giuseppe Aquaro
+    - Piazza Flavio Gioia
+    - Via Cosimo Vestuti 44
+    - Via Pietro del Pezzo 4
+    - Lungomare Guglielmo Marconi 43
+    - Via Francesco Galloppo 254
+    - via giacomo rescigno 14
+    - via gragnano 50
+- intent: submit_surname
+  examples: |
+    - Rossi
+    - Bianchi
+    - Abagnale
+    - Abate
+    - De Crescenzo
+- intent: submit_pizza_number
+  examples: |
+    - 1
+    - uno
+    - un
+    - solo 1
+    - [una]{"entity": "number", "value": "1"}
+    - solo [una]{"entity": "number", "value": "1"}
+    - [una]{"entity": "number", "value": "1"} soltanto
+    - soltanto [una]{"entity": "number", "value": "1"}
+    - [uan]{"entity": "number", "value": "1"} sola
+    - [uma]{"entity": "number", "value": "1"}
+    - ne fai 2
+    - due
+    - giusto due
+    - 3
+    - tre
+    - fammene 3
+    - fanne 4
+    - quattro
+    - 5
+    - cinque
+    - sei
+    - sette
+    - otto
+- synonym: 4 Stagioni
+  examples: |
+    - 4 stagioni
+    - quattro stagioni
+- synonym: 4 Formaggi
+  examples: |
+    - 4 formaggi
+    - quattro formaggi
+- synonym: Prosciutto crudo
+  examples: |
+    - crudo
+- synonym: Prosciutto cotto
+  examples: |
+    - cotto
+- synonym: '1'
+  examples: |
+    - una
+    - uan
+    - uma
+- synonym: Pomodoro
+  examples: |
+    - salsa
+    - rossa
+- synonym: Carciofi
+  examples: |
+    - carciofini
+- synonym: Uovo
+  examples: |
+    - uova
+- synonym: Bianca con Prosciutto cotto
+  examples: |
+    - bianca al cotto
+    - bianca con cotto
+    - bianca e cotto
