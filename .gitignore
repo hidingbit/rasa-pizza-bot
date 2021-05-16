@@ -2,3 +2,4 @@ workspace.code-workspace
 .vscode/
 models/
 actions/__pycache__
+.venv/

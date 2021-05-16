@@ -1,0 +1,4 @@
+rasa
+typing-extensions
+pyyaml
+fuzzywuzzy[speedup]
