@@ -1,4 +1,4 @@
-version: '2.0'
+version: "2.0"
 config:
   store_entities_as_slots: false
 session_config:
@@ -161,50 +161,51 @@ actions:
 - validate_order_form
 forms:
   order_form:
-    pizza:
-    - entity: pizza
-      intent: submit_pizza
-      type: from_entity
-    to_add_toppings:
-    - intent: affirm
-      type: from_intent
-      value: true
-    - intent: deny
-      type: from_intent
-      value: false
-    - entity: topping
-      intent: change_pizza_toppings
-      type: from_entity
-    add_toppings:
-    - entity: topping
-      intent: change_pizza_toppings
-      type: from_entity
-    to_remove_toppings:
-    - intent: affirm
-      type: from_intent
-      value: true
-    - intent: deny
-      type: from_intent
-      value: false
-    - entity: topping
-      intent: change_pizza_toppings
-      type: from_entity
-    remove_toppings:
-    - entity: topping
-      intent: change_pizza_toppings
-      type: from_entity
-    pizza_number:
-    - type: from_entity
-      entity: number
-      intent: submit_pizza_number
-    another_pizza:
-    - intent: affirm
-      type: from_intent
-      value: true
-    - intent: deny
-      type: from_intent
-      value: false
-    address:
-    - type: from_text
-    surname:
-    - type: from_text
+    required_slots:
+      pizza:
+      - entity: pizza
+        intent: submit_pizza
+        type: from_entity
+      to_add_toppings:
+      - intent: affirm
+        type: from_intent
+        value: true
+      - intent: deny
+        type: from_intent
+        value: false
+      - entity: topping
+        intent: change_pizza_toppings
+        type: from_entity
+      add_toppings:
+      - entity: topping
+        intent: change_pizza_toppings
+        type: from_entity
+      to_remove_toppings:
+      - intent: affirm
+        type: from_intent
+        value: true
+      - intent: deny
+        type: from_intent
+        value: false
+      - entity: topping
+        intent: change_pizza_toppings
+        type: from_entity
+      remove_toppings:
+      - entity: topping
+        intent: change_pizza_toppings
+        type: from_entity
+      pizza_number:
+      - type: from_entity
+        entity: number
+        intent: submit_pizza_number
+      another_pizza:
+      - intent: affirm
+        type: from_intent
+        value: true
+      - intent: deny
+        type: from_intent
+        value: false
+      address:
+      - type: from_text
+      surname:
+      - type: from_text

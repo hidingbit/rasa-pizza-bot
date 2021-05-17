@@ -133,7 +133,7 @@ class ValidateOrderForm(FormValidationAction):
         else: #L'ingrediente è uno solo, per cui è una stringa e non una lista
             fuzzy_results = process.extractOne(toppings, toppings_list, score_cutoff=70)
             if fuzzy_results is not None:
-                toppings = yaml_menu[fuzzy_results[2]]
+                toppings = [yaml_menu[fuzzy_results[2]]]
         print("[DEBUG] toppings_spellchecker in ValidateOrderForm - Results " + str(toppings))
         return toppings
 
