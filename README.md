@@ -24,8 +24,8 @@ sudo apt install python3-dev python3-pip python3-venv
 ```
 ### 3. Creazione ed attivazione del virtual environment
 ```sh
-python3 -m venv ./venv
-source ./venv/bin/activate
+python3 -m venv ./.venv
+source ./.venv/bin/activate
 
 deactivate  # per disattivare
 ```
